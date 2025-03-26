@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculos de Esfera</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .resultados {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cálculo da Esfera</h1>
+        <input type="number" id="raio" placeholder="Digite o raio" min="0" step="any">
+        <button onclick="calcular()">Calcular</button>
+        <div class="resultados" id="resultados">
+            <p>Comprimento: <span id="comprimento"></span></p>
+            <p>Área: <span id="area"></span></p>
+            <p>Volume: <span id="volume"></span></p>
+        </div>
+    </div>
+    <script>
+        function calcular() {
+            const raio = parseFloat(document.getElementById('raio').value);
+            if (raio > 0) {
+                document.getElementById('comprimento').textContent = (2 * Math.PI * raio).toFixed(4);
+                document.getElementById('area').textContent = (4 * Math.PI * raio ** 2).toFixed(4);
+                document.getElementById('volume').textContent = ((4/3) * Math.PI * raio ** 3).toFixed(4);
+                document.getElementById('resultados').style.display = 'block';
+            } else {
+                alert('Digite um raio válido!');
+            }
+        }
+    </script>
+</body>
+</html>
